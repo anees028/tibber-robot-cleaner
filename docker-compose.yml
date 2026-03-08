@@ -1,0 +1,23 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:13-alpine
+    environment:
+      POSTGRES_USER: tibber
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: tibber_db
+    ports:
+      - "5432:5432"
+
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_USER=tibber
+      - DB_PASSWORD=password
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_NAME=tibber_db
+    depends_on:
+      - db
