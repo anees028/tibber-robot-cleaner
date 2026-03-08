@@ -1,11 +1,13 @@
 version: '3.8'
+
 services:
   db:
     image: postgres:13-alpine
+    # Map the standard Postgres variables to your custom .env variables
     environment:
-      POSTGRES_USER: tibber
-      POSTGRES_PASSWORD: password
-      POSTGRES_DB: tibber_db
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
     ports:
       - "5432:5432"
 
@@ -13,11 +15,11 @@ services:
     build: .
     ports:
       - "5000:5000"
+    # Tell Docker to load all variables directly from the .env file
+    env_file:
+      - .env
+    # Override DB_HOST to point to the Docker service name ('db') instead of 'localhost'
     environment:
-      - DB_USER=tibber
-      - DB_PASSWORD=password
       - DB_HOST=db
-      - DB_PORT=5432
-      - DB_NAME=tibber_db
     depends_on:
       - db

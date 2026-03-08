@@ -26,4 +26,4 @@ class ExecutionResponse(BaseModel):
     duration: float
 
     class Config:
-        orm_mode = True
+        from_attributes = True  # Allows mapping from SQLAlchemy models

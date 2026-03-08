@@ -1,5 +1,4 @@
-import pytest
-from src.robot import calculate_unique_places
+from src.services.robot_service import calculate_unique_places
 
 
 class MockCommand:

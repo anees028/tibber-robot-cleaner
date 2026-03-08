@@ -2,5 +2,6 @@ fastapi[standard]
 uvicorn[standard]
 sqlalchemy
 psycopg2-binary # The PostgreSQL driver for synchronous operations
-python-dotenv
 pytest
+httpx
+pydantic-settings
