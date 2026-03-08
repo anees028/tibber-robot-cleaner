@@ -14,8 +14,7 @@ FastAPI backend for the Robot Cleaner application.
 
 #### On macOS/Linux:
 ```bash
-# Navigate to the BE directory
-cd BE
+# Navigate to the project directory
 
 # Create virtual environment
 python3 -m venv .venv
