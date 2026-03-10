@@ -5,6 +5,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the 'src' folder instead of 'app'
 COPY ./src /code/src
+COPY ./test /code/test
 
 # Start Uvicorn pointing to 'src.main'
 CMD ["uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "5000"]
