@@ -92,6 +92,21 @@ pytest
 
 ### POST `/tibber-developer-test/enter-path`
 
+### 1
+**CURL using Terminal: **
+```
+curl -X POST http://localhost:5000/tibber-developer-test/enter-path \
+-H "Content-Type: application/json" \
+-d '{
+  "start": {"x": 10, "y": 22},
+  "commands": [
+    {"direction": "east", "steps": 2},
+    {"direction": "north", "steps": 1}
+  ]
+}'
+```
+
+### 2
 **Body (JSON):**
 ```json
 {
